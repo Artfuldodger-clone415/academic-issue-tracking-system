@@ -11,10 +11,10 @@ class Issue(models.Model):
     ]
 
     STATUS_CHOICES = [
-        ('PENDING', 'Pending'),
-        ('IN_PROGRESS', 'In Progress'),
-        ('RESOLVED', 'Resolved'),
-        ('CLOSED', 'Closed'),
+        ("PENDING", "Pending"),
+        ("IN_PROGRESS", "In Progress"),
+        ("RESOLVED", "Resolved"),
+        ("CLOSED", "Closed"),
     ]
 
     title = models.CharField(max_length=200)
