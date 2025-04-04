@@ -32,11 +32,11 @@ class CommentListCreateView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user, issue=issue)
 
 class NotificationListView(generics.ListAPIView):
-    serializer_class = NotificationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = NotificationSerializer 
+    permission_classes = [permissions.IsAuthenticated] 
 
     def get_queryset(self):
-        return Notification.objects.filter(user=self.request.user, is_read=False)
+        return Notification.objects.filter(user=self.request.user, is_read=False) 
 
 class MarkNotificationReadView(generics.UpdateAPIView):
     queryset = Notification.objects.all()
