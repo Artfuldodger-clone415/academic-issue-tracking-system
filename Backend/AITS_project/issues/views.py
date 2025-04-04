@@ -8,7 +8,7 @@ class IssueListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Issue.objects.filter(student=self.request.user)
+        return Issue.objects.filter(student=self.request.user) 
 
 class IssueDetailView(generics.RetrieveUpdateAPIView):
     queryset = Issue.objects.all() 
