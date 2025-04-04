@@ -40,13 +40,13 @@ class NotificationListView(generics.ListAPIView):
 
 class MarkNotificationReadView(generics.UpdateAPIView):
     queryset = Notification.objects.all()
-    serializer_class = NotificationSerializer
+    serializer_class = NotificationSerializer 
     permission_classes = [permissions.IsAuthenticated]
 
     def update(self, request, *args, **kwargs):
-        notification = self.get_object()
+        notification = self.get_object() 
         if notification.user != request.user:
             return Response(status=status.HTTP_403_FORBIDDEN)
         notification.is_read = True
-        notification.save()
+        notification.save() 
         return Response(status=status.HTTP_200_OK)
