@@ -4,10 +4,10 @@ from django.utils import timezone
 
 class Issue(models.Model):
     ISSUE_TYPES = [
-        ('MISSING_MARKS', 'Missing Marks'),
-        ('APPEAL', 'Appeal'),
-        ('CORRECTION', 'Correction'),
-        ('OTHER', 'Other'),
+        ("MISSING_MARKS", "Missing Marks"),
+        ("APPEAL", "Appeal"),
+        ("CORRECTION", "Correction"),
+        ("OTHER", "Other"),
     ]
 
     STATUS_CHOICES = [
