@@ -23,11 +23,11 @@ class CommentListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        issue_id = self.kwargs['issue_id']
+        issue_id = self.kwargs["issue_id"]
         return Comment.objects.filter(issue_id=issue_id)
 
     def perform_create(self, serializer):
-        issue_id = self.kwargs['issue_id']
+        issue_id = self.kwargs["issue_id"]
         issue = Issue.objects.get(id=issue_id)
         serializer.save(user=self.request.user, issue=issue)
 
