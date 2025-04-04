@@ -7,13 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email']
 
-class CommentSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
 
-    class Meta:
-        model = Comment
-        fields = ['id', 'user', 'content', 'created_at']
-        read_only_fields = ['id', 'created_at']
 
 class IssueSerializer(serializers.ModelSerializer):
     student = UserSerializer(read_only=True)
