@@ -23,8 +23,8 @@ class Issue(models.Model):
     course_code = models.CharField(max_length=20)
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='issues', null=True, blank=True)
 
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
-    created_at = models.DateTimeField(default=timezone.now)  # Explicit default to avoid migration prompt
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING') 
+    created_at = models.DateTimeField(default=timezone.now)   # Explicit default to avoid migration prompt
     updated_at = models.DateTimeField(auto_now=True)  
 
     def __str__(self):
