@@ -40,3 +40,11 @@ class Comment(models.Model):
         return f"Comment by {self.user.username} on {self.issue.title}"
 
 
+class Notification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+    
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)  # Avoid migration issues
+
+    def __str__(self):
+        return f"Notification for {self.user.username}: {self.message}"
