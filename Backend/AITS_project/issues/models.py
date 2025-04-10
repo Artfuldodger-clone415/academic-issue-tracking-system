@@ -39,6 +39,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment by {self.user.username} on {self.issue.title}"
 
+
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications') 
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE) 
@@ -47,4 +48,4 @@ class Notification(models.Model):
     created_at = models.DateTimeField(default=timezone.now)  # Avoid migration issues
 
     def __str__(self):
-        return f"Notification for {self.user.username}: {self.message}" 
+
