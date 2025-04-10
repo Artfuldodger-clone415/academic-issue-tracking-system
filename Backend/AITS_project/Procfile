@@ -1,0 +1,1 @@
+web: gunicorn AITS_project.wsgi:application
