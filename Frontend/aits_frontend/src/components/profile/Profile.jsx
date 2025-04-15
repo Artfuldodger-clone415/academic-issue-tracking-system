@@ -106,7 +106,7 @@ const Profile = () => {
 
         <div className="card-body">
           {error && (
-            <div className="alert alert-error mb-4">
+            <div className="alert alert-error mb-4"> 
               <span style={{ whiteSpace: "pre-line" }}>{error}</span>
             </div>
           )}
