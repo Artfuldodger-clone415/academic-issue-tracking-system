@@ -82,17 +82,17 @@ class IssueViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated] 
         return [permission() for permission in permission_classes] 
     
-    def get_queryset(self):
-        user = self.request.user
-        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR:
+    def get_queryset(self): 
+        user = self.request.user 
+        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR: 
             return Issue.objects.all()
-        elif user.role == User.LECTURER:
+        elif user.role == User.LECTURER: 
             return Issue.objects.filter(assigned_to=user) | Issue.objects.filter(created_by=user)
         else:  # Student
-            return Issue.objects.filter(created_by=user)
+            return Issue.objects.filter(created_by=user) 
     
     @action(detail=True, methods=['post'])
-    def assign(self, request, pk=None):
+    def assign(self, request, pk=None): 
         issue = self.get_object()
         user_id = request.data.get('user_id')
         
@@ -100,23 +100,23 @@ class IssueViewSet(viewsets.ModelViewSet):
             return Response({"error": "User ID is required"}, status=status.HTTP_400_BAD_REQUEST)
         
         try:
-            user = User.objects.get(id=user_id)
+            user = User.objects.get(id=user_id) 
             if user.role not in [User.LECTURER, User.ACADEMIC_REGISTRAR, User.ADMIN]:
                 return Response({"error": "Can only assign to staff members"}, status=status.HTTP_400_BAD_REQUEST)
             
             issue.assigned_to = user
-            issue.save(update_fields=['assigned_to'])
+            issue.save(update_fields=['assigned_to']) 
             
             Notification.objects.create(
                 user=user,
-                notification_type=Notification.ASSIGNED,
+                notification_type=Notification.ASSIGNED, 
                 issue=issue,
                 message=f"Issue '{issue.title}' has been assigned to you by {request.user.get_full_name()}"
             )
             
             return Response(IssueSerializer(issue).data)
         except User.DoesNotExist:
-            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND) 
     
     @action(detail=False, methods=['get'])
     def stats(self, request):
