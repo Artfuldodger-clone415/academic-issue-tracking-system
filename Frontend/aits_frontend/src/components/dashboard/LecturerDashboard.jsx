@@ -10,7 +10,7 @@ const LecturerDashboard = ({ stats }) => {
   const { user } = useAuth()
   const [assignedIssues, setAssignedIssues] = useState([])
   const [loading, setLoading] = useState(true)
-  const [chartData, setChartData] = useState([])
+  const [chartData, setChartData] = useState([]) 
 
   useEffect(() => {
     const fetchAssignedIssues = async () => {
