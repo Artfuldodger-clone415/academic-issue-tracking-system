@@ -75,13 +75,13 @@ class IssueSerializer(serializers.ModelSerializer):
         issue = Issue.objects.create(**validated_data)
         
         # Create notification for the assigned user if any
-        if issue.assigned_to:
+        if issue.assigned_to: 
             Notification.objects.create(
-                user=issue.assigned_to,
-                notification_type=Notification.ISSUE_CREATED,
+                user=issue.assigned_to, 
+                notification_type=Notification.ISSUE_CREATED, 
                 issue=issue,
                 message=f"New issue '{issue.title}' has been assigned to you"
-            )
+            ) 
         
         # Create notification for academic registrars
         for registrar in User.objects.filter(role=User.ACADEMIC_REGISTRAR):
