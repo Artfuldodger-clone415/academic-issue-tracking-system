@@ -28,7 +28,7 @@ class CommentInline(admin.TabularInline):
     model = Comment
     extra = 0
 
-class IssueAdmin(admin.ModelAdmin):
+class IssueAdmin(admin.ModelAdmin): 
     list_display = ('title', 'created_by', 'assigned_to', 'status', 'created_at', 'updated_at')
     list_filter = ('status', 'created_at')
     search_fields = ('title', 'description')
