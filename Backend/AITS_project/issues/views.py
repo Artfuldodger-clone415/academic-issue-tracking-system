@@ -71,16 +71,16 @@ class IssueViewSet(viewsets.ModelViewSet):
     queryset = Issue.objects.all()
     serializer_class = IssueSerializer
     
-    def get_permissions(self):
+    def get_permissions(self): 
         if self.action in ['create']:
-            permission_classes = [permissions.IsAuthenticated]
+            permission_classes = [permissions.IsAuthenticated] 
         elif self.action in ['update', 'partial_update', 'destroy']:
-            permission_classes = [IsOwnerOrReadOnly | IsAdminUser | IsAcademicRegistrar]
+            permission_classes = [IsOwnerOrReadOnly | IsAdminUser | IsAcademicRegistrar] 
         elif self.action in ['request_info']:
             permission_classes = [permissions.IsAuthenticated, IsLecturerAssignedToIssue]
         else:
-            permission_classes = [permissions.IsAuthenticated]
-        return [permission() for permission in permission_classes]
+            permission_classes = [permissions.IsAuthenticated] 
+        return [permission() for permission in permission_classes] 
     
     def get_queryset(self):
         user = self.request.user
