@@ -50,18 +50,18 @@ class RegisterView(generics.CreateAPIView):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-class UserProfileView(generics.RetrieveUpdateAPIView):
-    serializer_class = UserProfileSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+class UserProfileView(generics.RetrieveUpdateAPIView): 
+    serializer_class = UserProfileSerializer 
+    permission_classes = (permissions.IsAuthenticated,) 
     
     def get_object(self):
         return self.request.user
 
-class UserListView(generics.ListAPIView):
+class UserListView(generics.ListAPIView): 
     serializer_class = UserListSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,) 
     
-    def get_queryset(self):
+    def get_queryset(self): 
         role = self.kwargs.get('role') or self.request.query_params.get('role')
         if role:
             return User.objects.filter(role=role)
