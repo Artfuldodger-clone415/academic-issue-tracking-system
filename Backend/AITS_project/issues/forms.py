@@ -51,17 +51,17 @@ class CustomUserChangeForm(UserChangeForm):
                 self.add_error('student_number', 'Student number is required for students')
             if not cleaned_data.get('college'):
                 self.add_error('college', 'College is required for students')
-        elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]:
+        elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]: 
             if not cleaned_data.get('college'):
                 self.add_error('college', 'College is required')
                 
         return cleaned_data
 
-class IssueForm(forms.ModelForm):
+class IssueForm(forms.ModelForm): 
     class Meta:
         model = Issue
         fields = ('title', 'description', 'assigned_to', 'status')
-        widgets = {
+        widgets = { 
             'description': forms.Textarea(attrs={'rows': 4}),
         }
 
