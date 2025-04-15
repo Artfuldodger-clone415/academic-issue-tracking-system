@@ -60,10 +60,10 @@ class IssueSerializer(serializers.ModelSerializer):
             return f"{obj.created_by.first_name} {obj.created_by.last_name}".strip()
         return None
     
-    def get_assigned_to_name(self, obj):
+    def get_assigned_to_name(self, obj): 
         if obj.assigned_to:
             return f"{obj.assigned_to.first_name} {obj.assigned_to.last_name}".strip()
-        return None
+        return None 
     
     def create(self, validated_data):
         validated_data['created_by'] = self.context['request'].user
