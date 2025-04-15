@@ -192,5 +192,5 @@ const LecturerDashboard = ({ stats }) => {
   )
 }
 
-export default LecturerDashboard
+export default LecturerDashboard 
 
