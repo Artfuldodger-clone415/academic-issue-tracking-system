@@ -21,7 +21,7 @@ const IssueDetail = () => {
     title: "",
     description: "",
     priority: "",
-    status: "",
+    status: "", 
     assigned_to: "",
   })
 

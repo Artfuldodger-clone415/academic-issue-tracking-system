@@ -20,7 +20,7 @@ from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOr
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,) 
     serializer_class = UserSerializer
 
     def create(self, request, *args, **kwargs):

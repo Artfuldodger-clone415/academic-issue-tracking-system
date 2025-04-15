@@ -7,7 +7,7 @@ class IsAdminUser(permissions.BasePermission):
 
 class IsAcademicRegistrar(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user and request.user.role == User.ACADEMIC_REGISTRAR
+        return request.user and request.user.role == User.ACADEMIC_REGISTRAR 
 
 class IsLecturer(permissions.BasePermission):
     def has_permission(self, request, view):

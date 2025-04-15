@@ -27,7 +27,7 @@ const IssueList = () => {
         setLoading(false);
       } catch (error) {
         console.error('Error fetching issues:', error);
-        setError('Failed to load issues. Please try again.');
+        setError('Failed to load issues. Please try again.'); 
         setLoading(false);
       }
     };

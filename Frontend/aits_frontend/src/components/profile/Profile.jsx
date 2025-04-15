@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { useAuth } from "../../contexts/AuthContext"
-import { Camera, Save, User, Mail, Phone, School, Building } from "lucide-react"
+import { Camera, Save, User, Mail, Phone, School, Building } from "lucide-react" 
 
 const Profile = () => {
   const { user, updateUser } = useAuth()
@@ -106,7 +106,7 @@ const Profile = () => {
 
         <div className="card-body">
           {error && (
-            <div className="alert alert-error mb-4">
+            <div className="alert alert-error mb-4"> 
               <span style={{ whiteSpace: "pre-line" }}>{error}</span>
             </div>
           )}

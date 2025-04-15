@@ -10,7 +10,7 @@ const LecturerDashboard = ({ stats }) => {
   const { user } = useAuth()
   const [assignedIssues, setAssignedIssues] = useState([])
   const [loading, setLoading] = useState(true)
-  const [chartData, setChartData] = useState([])
+  const [chartData, setChartData] = useState([]) 
 
   useEffect(() => {
     const fetchAssignedIssues = async () => {
@@ -40,7 +40,7 @@ const LecturerDashboard = ({ stats }) => {
 
         setLoading(false)
       } catch (error) {
-        console.error("Error fetching assigned issues:", error)
+        console.error("Error fetching assigned issues:", error) 
         setLoading(false)
       }
     }
@@ -179,7 +179,7 @@ const LecturerDashboard = ({ stats }) => {
                   <span>Updated: {new Date(issue.updated_at).toLocaleDateString()}</span>
                 </div>
                 <div className="issue-actions">
-                  <Link to={`/issues/${issue.id}`} className="btn btn-primary">
+                  <Link to={`/issues/${issue.id}`} className="btn btn-primary"> 
                     Continue Working
                   </Link>
                 </div>
@@ -192,5 +192,5 @@ const LecturerDashboard = ({ stats }) => {
   )
 }
 
-export default LecturerDashboard
+export default LecturerDashboard 
 
