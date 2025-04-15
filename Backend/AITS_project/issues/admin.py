@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import User, Issue, Comment, Notification
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin): 
     model = User
     list_display = ('username', 'email', 'first_name', 'last_name', 'role', 'college', 'is_staff')
     list_filter = ('role', 'college', 'is_staff', 'is_active')
@@ -13,7 +13,7 @@ class CustomUserAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
-    add_fieldsets = (
+    add_fieldsets = ( 
         (None, {
             'classes': ('wide',),
             'fields': ('username', 'email', 'first_name', 'last_name', 'phone_number', 
