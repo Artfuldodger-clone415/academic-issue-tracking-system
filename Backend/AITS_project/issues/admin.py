@@ -30,7 +30,7 @@ class CommentInline(admin.TabularInline):
 
 class IssueAdmin(admin.ModelAdmin): 
     list_display = ('title', 'created_by', 'assigned_to', 'status', 'created_at', 'updated_at')
-    list_filter = ('status', 'created_at')
+    list_filter = ('status', 'created_at') 
     search_fields = ('title', 'description')
     inlines = [CommentInline]
     date_hierarchy = 'created_at'
