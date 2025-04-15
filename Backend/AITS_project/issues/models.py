@@ -7,7 +7,7 @@ def get_default_user():
     return User.objects.first().id  # Adjust logic if needed
 
 
-class User(AbstractUser):
+class User(AbstractUser): 
     STUDENT = 'student'
     LECTURER = 'lecturer'
     ACADEMIC_REGISTRAR = 'academic_registrar'
