@@ -306,4 +306,4 @@ class DashboardView(APIView):
         # Get unread notifications count
         data['unread_notifications'] = Notification.objects.filter(user=user, is_read=False).count()
         
-        return Response(data)
+        return Response(data) 
