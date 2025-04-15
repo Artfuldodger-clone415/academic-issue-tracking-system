@@ -65,10 +65,10 @@ class IssueForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows': 4}),
         }
 
-class CommentForm(forms.ModelForm):
+class CommentForm(forms.ModelForm): 
     class Meta:
         model = Comment
-        fields = ('content',)
+        fields = ('content',) 
         widgets = {
-            'content': forms.Textarea(attrs={'rows': 3}),
+            'content': forms.Textarea(attrs={'rows': 3}), 
         }
