@@ -277,9 +277,9 @@ class DashboardView(APIView):
             }
         }
         
-        # Role-specific data
+        # Role-specific data  
         if user.role == User.STUDENT:
-            # Get student's issues
+            # Get student's issues  
             issues = Issue.objects.filter(created_by=user)
             data['issues'] = {
                 'total': issues.count(),
