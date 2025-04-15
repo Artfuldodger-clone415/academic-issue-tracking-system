@@ -40,7 +40,7 @@ const LecturerDashboard = ({ stats }) => {
 
         setLoading(false)
       } catch (error) {
-        console.error("Error fetching assigned issues:", error)
+        console.error("Error fetching assigned issues:", error) 
         setLoading(false)
       }
     }
