@@ -39,7 +39,7 @@ class NotificationAdmin(admin.ModelAdmin):
     list_display = ('user', 'notification_type', 'issue', 'is_read', 'created_at')
     list_filter = ('notification_type', 'is_read', 'created_at')
     search_fields = ('message',)
-    date_hierarchy = 'created_at'
+    date_hierarchy = 'created_at'  
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Issue, IssueAdmin)
