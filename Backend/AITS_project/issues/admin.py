@@ -22,7 +22,7 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
     search_fields = ('username', 'email', 'first_name', 'last_name', 'student_number', 'college')
-    ordering = ('username',)
+    ordering = ('username',) 
 
 class CommentInline(admin.TabularInline):
     model = Comment
