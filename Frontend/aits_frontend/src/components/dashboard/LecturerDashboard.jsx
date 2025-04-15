@@ -179,7 +179,7 @@ const LecturerDashboard = ({ stats }) => {
                   <span>Updated: {new Date(issue.updated_at).toLocaleDateString()}</span>
                 </div>
                 <div className="issue-actions">
-                  <Link to={`/issues/${issue.id}`} className="btn btn-primary">
+                  <Link to={`/issues/${issue.id}`} className="btn btn-primary"> 
                     Continue Working
                   </Link>
                 </div>
