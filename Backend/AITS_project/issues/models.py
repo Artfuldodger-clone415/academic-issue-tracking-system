@@ -79,19 +79,19 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment on {self.issue.title} by {self.created_by.get_full_name()}"
 
-class Notification(models.Model):
-    ISSUE_CREATED = 'issue_created'
+class Notification(models.Model): 
+    ISSUE_CREATED = 'issue_created' 
     ISSUE_UPDATED = 'issue_updated'
     STATUS_CHANGED = 'status_changed'
-    COMMENT_ADDED = 'comment_added'
-    ASSIGNED = 'assigned'
+    COMMENT_ADDED = 'comment_added'  
+    ASSIGNED = 'assigned' 
     
     NOTIFICATION_TYPES = [
         (ISSUE_CREATED, 'Issue Created'),
-        (ISSUE_UPDATED, 'Issue Updated'),
-        (STATUS_CHANGED, 'Status Changed'),
+        (ISSUE_UPDATED, 'Issue Updated'), 
+        (STATUS_CHANGED, 'Status Changed'), 
         (COMMENT_ADDED, 'Comment Added'),
-        (ASSIGNED, 'Assigned'),
+        (ASSIGNED, 'Assigned'), 
     ]
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
