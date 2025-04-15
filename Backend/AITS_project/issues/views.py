@@ -8,12 +8,12 @@ from django.contrib.auth import get_user_model
 from django.db.models import Count
 from .models import Issue, Comment, User, Notification
 from .serializers import (
-    UserSerializer, 
-    UserProfileSerializer,
-    UserListSerializer,
-    IssueSerializer, 
-    CommentSerializer,
-    NotificationSerializer
+    UserSerializer,  
+    UserProfileSerializer, 
+    UserListSerializer, 
+    IssueSerializer,  
+    CommentSerializer, 
+    NotificationSerializer 
 )
 from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
 
