@@ -24,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('username', 'email', 'first_name', 'last_name', 'student_number', 'college')
     ordering = ('username',) 
 
-class CommentInline(admin.TabularInline):
+class CommentInline(admin.TabularInline): 
     model = Comment
     extra = 0
 
