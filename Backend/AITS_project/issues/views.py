@@ -18,10 +18,10 @@ from .serializers import (
 from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
 
 
-class RegisterView(generics.CreateAPIView):  
+class RegisterView(generics.CreateAPIView):   
     queryset = User.objects.all()
     permission_classes = (permissions.AllowAny,) 
-    serializer_class = UserSerializer
+    serializer_class = UserSerializer 
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -50,7 +50,7 @@ class RegisterView(generics.CreateAPIView):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-class UserProfileView(generics.RetrieveUpdateAPIView): 
+class UserProfileView(generics.RetrieveUpdateAPIView):  
     serializer_class = UserProfileSerializer 
     permission_classes = (permissions.IsAuthenticated,) 
     
@@ -194,14 +194,14 @@ class CommentViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated]
         return [permission() for permission in permission_classes]
 
-class NotificationViewSet(viewsets.ModelViewSet):
-    serializer_class = NotificationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class NotificationViewSet(viewsets.ModelViewSet): 
+    serializer_class = NotificationSerializer 
+    permission_classes = [permissions.IsAuthenticated] 
     
     def get_queryset(self):
-        return Notification.objects.filter(user=self.request.user)
+        return Notification.objects.filter(user=self.request.user) 
     
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['post']) 
     def mark_all_read(self, request):
         notifications = Notification.objects.filter(user=request.user, is_read=False)
         notifications.update(is_read=True)

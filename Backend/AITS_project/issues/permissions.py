@@ -31,4 +31,4 @@ class IsLecturerAssignedToIssue(permissions.BasePermission):
     def has_object_permission(self, request, view, obj): 
         # Check if user is a lecturer and is assigned to this issue
         return (request.user.role == User.LECTURER and 
-                obj.assigned_to == request.user)
+                obj.assigned_to == request.user) 

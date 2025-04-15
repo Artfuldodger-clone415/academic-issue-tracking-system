@@ -60,10 +60,10 @@ class IssueSerializer(serializers.ModelSerializer):
             return f"{obj.created_by.first_name} {obj.created_by.last_name}".strip()
         return None
     
-    def get_assigned_to_name(self, obj):
+    def get_assigned_to_name(self, obj):  
         if obj.assigned_to:
             return f"{obj.assigned_to.first_name} {obj.assigned_to.last_name}".strip()
-        return None
+        return None 
     
     def create(self, validated_data):
         validated_data['created_by'] = self.context['request'].user
@@ -75,16 +75,16 @@ class IssueSerializer(serializers.ModelSerializer):
         issue = Issue.objects.create(**validated_data)
         
         # Create notification for the assigned user if any
-        if issue.assigned_to:
+        if issue.assigned_to: 
             Notification.objects.create(
-                user=issue.assigned_to,
-                notification_type=Notification.ISSUE_CREATED,
+                user=issue.assigned_to, 
+                notification_type=Notification.ISSUE_CREATED, 
                 issue=issue,
                 message=f"New issue '{issue.title}' has been assigned to you"
-            )
+            ) 
         
         # Create notification for academic registrars
-        for registrar in User.objects.filter(role=User.ACADEMIC_REGISTRAR):
+        for registrar in User.objects.filter(role=User.ACADEMIC_REGISTRAR): 
             Notification.objects.create(
                 user=registrar,
                 notification_type=Notification.ISSUE_CREATED,
@@ -94,18 +94,18 @@ class IssueSerializer(serializers.ModelSerializer):
         
         return issue
     
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data): 
         old_status = instance.status
         old_assigned_to = instance.assigned_to
         
         # Update the instance
-        for attr, value in validated_data.items():
+        for attr, value in validated_data.items(): 
             setattr(instance, attr, value)
         
         instance.save()
         
         # Create notifications for status changes
-        if 'status' in validated_data and old_status != instance.status:
+        if 'status' in validated_data and old_status != instance.status: 
             # Notify the creator
             Notification.objects.create(
                 user=instance.created_by,
