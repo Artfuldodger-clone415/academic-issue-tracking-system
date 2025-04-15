@@ -169,15 +169,15 @@ class IssueViewSet(viewsets.ModelViewSet):
         )
         
         # Update the issue status to in_progress if it's pending
-        if issue.status == Issue.PENDING:
-            issue.status = Issue.IN_PROGRESS
+        if issue.status == Issue.PENDING: 
+            issue.status = Issue.IN_PROGRESS 
             issue.save(update_fields=['status'])
-        
+         
         return Response({
             'success': True,
-            'comment': CommentSerializer(comment).data,
+            'comment': CommentSerializer(comment).data, 
             'issue': IssueSerializer(issue).data
-        })
+        }) 
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
