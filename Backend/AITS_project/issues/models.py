@@ -70,11 +70,11 @@ class Issue(models.Model):
     def get_status_display(self):
         return dict(self.STATUS_CHOICES).get(self.status, self.status)
 
-class Comment(models.Model):
+class Comment(models.Model): 
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name='comments')
     content = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True) 
     
     def __str__(self):
         return f"Comment on {self.issue.title} by {self.created_by.get_full_name()}"
