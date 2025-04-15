@@ -124,12 +124,12 @@ class IssueViewSet(viewsets.ModelViewSet):
         user = request.user
         
         # Base queryset depends on user role
-        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR:
-            queryset = Issue.objects.all()
-        elif user.role == User.LECTURER:
+        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR: 
+            queryset = Issue.objects.all() 
+        elif user.role == User.LECTURER: 
             queryset = Issue.objects.filter(assigned_to=user) | Issue.objects.filter(created_by=user)
         else:  # Student
-            queryset = Issue.objects.filter(created_by=user)
+            queryset = Issue.objects.filter(created_by=user) 
         
         # Count issues by status
         status_counts = queryset.values('status').annotate(count=Count('status'))
