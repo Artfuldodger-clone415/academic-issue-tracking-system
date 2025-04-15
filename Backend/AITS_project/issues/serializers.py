@@ -84,7 +84,7 @@ class IssueSerializer(serializers.ModelSerializer):
             ) 
         
         # Create notification for academic registrars
-        for registrar in User.objects.filter(role=User.ACADEMIC_REGISTRAR):
+        for registrar in User.objects.filter(role=User.ACADEMIC_REGISTRAR): 
             Notification.objects.create(
                 user=registrar,
                 notification_type=Notification.ISSUE_CREATED,
@@ -94,7 +94,7 @@ class IssueSerializer(serializers.ModelSerializer):
         
         return issue
     
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data): 
         old_status = instance.status
         old_assigned_to = instance.assigned_to
         
