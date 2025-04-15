@@ -103,10 +103,7 @@ SIMPLE_JWT = {
 }
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = [
-    "http://localhost:3000",
-    "https://your-frontend-domain.com"
-]  
+CORS_ALLOW_ALL_ORIGINS = True  # For development only, restrict in production
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'

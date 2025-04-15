@@ -15,11 +15,7 @@ from .serializers import (
     CommentSerializer,
     NotificationSerializer
 )
-from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly
-
-
-
-
+from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
 
 
 class RegisterView(generics.CreateAPIView):
@@ -80,6 +76,8 @@ class IssueViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated]
         elif self.action in ['update', 'partial_update', 'destroy']:
             permission_classes = [IsOwnerOrReadOnly | IsAdminUser | IsAcademicRegistrar]
+        elif self.action in ['request_info']:
+            permission_classes = [permissions.IsAuthenticated, IsLecturerAssignedToIssue]
         else:
             permission_classes = [permissions.IsAuthenticated]
         return [permission() for permission in permission_classes]
@@ -148,6 +146,38 @@ class IssueViewSet(viewsets.ModelViewSet):
             stats['by_college'] = {item['created_by__college'] or 'Unknown': item['count'] for item in college_counts}
         
         return Response(stats)
+    
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsLecturerAssignedToIssue])
+    def request_info(self, request, pk=None):
+        """Request more information from a student about an issue"""
+        issue = self.get_object()
+        message = request.data.get('message', 'More information is needed to resolve this issue.')
+        
+        # Create a comment with the request for more information
+        comment = Comment.objects.create(
+            issue=issue,
+            content=message,
+            created_by=request.user
+        )
+        
+        # Notify the student who created the issue
+        Notification.objects.create(
+            user=issue.created_by,
+            notification_type=Notification.COMMENT_ADDED,
+            issue=issue,
+            message=f"A lecturer has requested more information on your issue '{issue.title}'"
+        )
+        
+        # Update the issue status to in_progress if it's pending
+        if issue.status == Issue.PENDING:
+            issue.status = Issue.IN_PROGRESS
+            issue.save(update_fields=['status'])
+        
+        return Response({
+            'success': True,
+            'comment': CommentSerializer(comment).data,
+            'issue': IssueSerializer(issue).data
+        })
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
@@ -306,4 +336,4 @@ class DashboardView(APIView):
         # Get unread notifications count
         data['unread_notifications'] = Notification.objects.filter(user=user, is_read=False).count()
         
-        return Response(data) 
+        return Response(data)
