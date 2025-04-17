@@ -25,7 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
             student_number=validated_data.get('student_number', None),
             college=validated_data.get('college', None)
         )
-        return user
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
