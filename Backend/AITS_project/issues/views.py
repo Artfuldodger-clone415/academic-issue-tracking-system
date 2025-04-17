@@ -21,7 +21,7 @@ from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOr
 
 
 
-          
+         
 
 class RegisterView(generics.CreateAPIView):   
     queryset = User.objects.all()
