@@ -8,7 +8,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         try:
             data = super().validate(attrs)
-            
+              
             # Add extra user info to the token response
             user = self.user
             data.update({
