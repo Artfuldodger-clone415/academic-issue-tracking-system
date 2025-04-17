@@ -19,9 +19,6 @@ from .views import (
 )
 from .models import User
   
-router = DefaultRouter()
-router.register(r'issues', IssueViewSet)
-router.register(r'notifications', NotificationViewSet, basename='notifications')
 
 # Nested router for comments
 issues_router = routers.NestedSimpleRouter(router, r'issues', lookup='issue')
