@@ -16,7 +16,7 @@ class IsLecturer(permissions.BasePermission):
 class IsStudent(permissions.BasePermission): 
     def has_permission(self, request, view):
         return request.user and request.user.role == User.STUDENT 
-      
+        
 class IsOwnerOrReadOnly(permissions.BasePermission): 
     def has_object_permission(self, request, view, obj): 
         if request.method in permissions.SAFE_METHODS: 
