@@ -16,7 +16,6 @@ from .serializers import (
     NotificationSerializer 
 )
 from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
-        
 
 class RegisterView(generics.CreateAPIView):   
     queryset = User.objects.all()
