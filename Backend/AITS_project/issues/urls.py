@@ -18,7 +18,7 @@ from .views import (
     DashboardView
 )
 from .models import User
-
+  
 router = DefaultRouter()
 router.register(r'issues', IssueViewSet)
 router.register(r'notifications', NotificationViewSet, basename='notifications')
