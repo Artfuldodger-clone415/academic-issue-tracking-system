@@ -17,6 +17,7 @@ from .serializers import (
 )
 from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
 
+
 class RegisterView(generics.CreateAPIView):   
     queryset = User.objects.all()
     permission_classes = (permissions.AllowAny,) 
