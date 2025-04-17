@@ -12,6 +12,9 @@ class CustomUserCreationForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.fields['student_number'].required = False
     
+
+
+    
     def clean(self):
         cleaned_data = super().clean() 
         role = cleaned_data.get('role') 
