@@ -13,7 +13,6 @@ class IsLecturer(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.user and request.user.role == User.LECTURER 
        
-
 class IsStudent(permissions.BasePermission): 
     def has_permission(self, request, view):
         return request.user and request.user.role == User.STUDENT 
