@@ -51,3 +51,5 @@ urlpatterns = [
     path('students/', UserListView.as_view(), {'role': User.STUDENT}, name='students'),
     path('registrars/', UserListView.as_view(), {'role': User.ACADEMIC_REGISTRAR}, name='registrars'),
 ]
+
+
