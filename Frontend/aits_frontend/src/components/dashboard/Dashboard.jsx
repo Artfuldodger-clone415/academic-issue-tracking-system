@@ -10,6 +10,7 @@ import api from "../../services/api"
 
 const Dashboard = () => {
   const { user } = useAuth()
+
     inProgressIssues: 0,
   })
   const [loading, setLoading] = useState(true)
