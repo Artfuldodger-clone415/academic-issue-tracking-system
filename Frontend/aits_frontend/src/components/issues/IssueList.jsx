@@ -7,6 +7,7 @@ import api from "../../services/api"
 import { Search, Filter, Plus, AlertCircle, Clock, Check, X } from 'lucide-react'
 
 const IssueList = () => {
+  cons
 
   useEffect(() => {
     const fetchIssues = async () => {
