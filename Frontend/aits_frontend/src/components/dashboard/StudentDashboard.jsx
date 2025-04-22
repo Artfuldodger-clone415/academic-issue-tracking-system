@@ -13,7 +13,7 @@ const StudentDashboard = ({ stats }) => {
 
 
   useEffect(() => {
-    const fetchRecentIssues = async () => {
+    c
       try {
         const response = await api.get("/issues/")
         // Filter issues created by the current student
