@@ -11,7 +11,7 @@ const NotificationBell = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [loading, setLoading] = useState(true)
   const bellRef = useRef(null)
-
+    
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
