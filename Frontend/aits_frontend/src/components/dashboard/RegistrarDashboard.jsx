@@ -33,11 +33,7 @@ const RegistrarDashboard = ({ stats }) => {
           const createdBy = issue.created_by_name
           const college = issue.college || "Unknown"
 
-          if (!collegeMap[college]) {
-            collegeMap[college] = { name: college, count: 0 }
-          }
-          collegeMap[college].count++
-        })
+          
 
         setCollegeStats(Object.values(collegeMap))
 
