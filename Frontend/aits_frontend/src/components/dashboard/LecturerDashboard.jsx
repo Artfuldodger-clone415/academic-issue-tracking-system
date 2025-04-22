@@ -26,12 +26,7 @@ const LecturerDashboard = ({ stats }) => {
 
         // Prepare data for the bar chart
         const statusCounts = {
-          pending: userIssues.filter((issue) => issue.status === "pending").length,
-          in_progress: userIssues.filter((issue) => issue.status === "in_progress").length,
-          resolved: userIssues.filter((issue) => issue.status === "resolved").length,
-          closed: userIssues.filter((issue) => issue.status === "closed").length,
-        }
-
+          pen
         setChartData([
           { name: "Pending", count: statusCounts.pending },
           { name: "In Progress", count: statusCounts.in_progress },
