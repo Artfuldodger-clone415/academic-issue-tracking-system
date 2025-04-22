@@ -11,7 +11,11 @@ const CreateIssue = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-   setCourseUnits] = useState([])
+    priority: "medium",
+    course_unit: "",
+    assigned_to: "",
+  })
+  const [courseUnits, setCourseUnits] = useState([])
   const [lecturers, setLecturers] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
