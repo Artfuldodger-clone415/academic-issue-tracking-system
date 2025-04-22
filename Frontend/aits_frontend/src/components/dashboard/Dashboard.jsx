@@ -23,6 +23,7 @@ const Dashboard = () => {
       try {
         const response = await api.get("/issues/")
         const issues = response.data
+        
 
         setStats({
           totalIssues: issues.length,
