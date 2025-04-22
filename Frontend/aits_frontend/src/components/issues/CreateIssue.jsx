@@ -36,8 +36,6 @@ const CreateIssue = () => {
       }
     }
 
-    
-
     fetchData()
   }, [])
 
