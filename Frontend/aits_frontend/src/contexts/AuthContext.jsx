@@ -12,7 +12,7 @@ export const AuthContext = createContext({
   logout: () => {},
   updateUser: async () => {},
 })
-
+     
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {

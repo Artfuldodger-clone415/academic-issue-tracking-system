@@ -11,6 +11,7 @@ const StudentDashboard = ({ stats }) => {
   const [recentIssues, setRecentIssues] = useState([])
   const [loading, setLoading] = useState(true)
 
+
   useEffect(() => {
     const fetchRecentIssues = async () => {
       try {
