@@ -24,8 +24,6 @@ const Dashboard = () => {
         const response = await api.get("/issues/")
         const issues = response.data
 
-        
-
         setStats({
           totalIssues: issues.length,
           pendingIssues: issues.filter((issue) => issue.status === "pending").length,
