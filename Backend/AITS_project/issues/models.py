@@ -29,7 +29,6 @@ class User(AbstractUser):
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}".strip()
-  
 class Issue(models.Model):
     PENDING = 'pending'
     IN_PROGRESS = 'in_progress'
