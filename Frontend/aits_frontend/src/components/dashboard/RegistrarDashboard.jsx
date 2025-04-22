@@ -39,8 +39,6 @@ const RegistrarDashboard = ({ stats }) => {
           collegeMap[college].count++
         })
 
-        
-
         setCollegeStats(Object.values(collegeMap))
 
         // Identify priority issues (pending for more than 7 days)
