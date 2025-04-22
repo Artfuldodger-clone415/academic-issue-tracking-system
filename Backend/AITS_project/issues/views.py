@@ -40,10 +40,7 @@ class RegisterView(generics.CreateAPIView):
                     {"college": "College is required for students."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]: 
-                return Response(
-                    {"college": "College is required."},
-                    status=status.HTTP_400_BAD_REQUEST
+            elif rol
                 )
         
         self.perform_create(serializer) 
