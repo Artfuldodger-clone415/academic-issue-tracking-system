@@ -21,7 +21,11 @@ const StudentDashboard = ({ stats }) => {
         // Sort by creation date (newest first) and take the first 5
         const sortedIssues = userIssues.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 5)
 
-        
+        setRecentIssues(sortedIssues)
+        setLoading(false)
+      } catch (error) {
+        console.error("Error fetching recent issues:", error)
+        setLoading(false)
       }
     }
 
