@@ -20,6 +20,7 @@ import {
 
 const RegistrarDashboard = ({ stats }) => {
   const { user } = useAuth()
+  useEffect(() => {
     const fetchAllIssues = async () => {
       try {
         const response = await api.get("/issues/")
