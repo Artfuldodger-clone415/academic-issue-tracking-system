@@ -12,9 +12,7 @@ const NotificationBell = () => {
   const [loading, setLoading] = useState(true)
   const bellRef = useRef(null)
 
-  useEffect(() => {
-    const fetchNotifications = async () => {
-      try {
+  useEffect(
         const response = await api.get("/notifications/")
         const data = response.data
         setNotifications(data)
