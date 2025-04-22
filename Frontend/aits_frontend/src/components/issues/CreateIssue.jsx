@@ -28,14 +28,7 @@ const CreateIssue = () => {
         setCourseUnits(courseUnitsResponse.data)
 
         // Fetch lecturers
-        const lecturersResponse = await getLecturers()
-        setLecturers(lecturersResponse)
-      } catch (error) {
-        console.error("Error fetching form data:", error)
-        setError("Failed to load form data. Please try again.")
-      }
-    }
-
+        
     fetchData()
   }, [])
 
