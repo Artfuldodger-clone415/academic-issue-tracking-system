@@ -1,10 +1,10 @@
 // src/components/debug/UserDebug.jsx
 "use client"
 
-import { useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext" 
 
 const UserDebug = () => {
-  const { user, isAuthenticated, loading } = useAuth()
+  const { user, isAuthenticated, loading } = useAuth() 
 
   if (loading) return <div>Loading user data...</div>
 
