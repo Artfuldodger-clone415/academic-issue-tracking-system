@@ -12,7 +12,7 @@ const StudentRegistration = () => {
     last_name: '',
     phone_number: '',
     student_number: '', 
-    college: '',
+    college: '', 
     password: '',
     password2: '',
     role: 'student' 
