@@ -11,7 +11,7 @@ export const IssueContext = createContext({
   fetchIssues: async () => {}, 
   submitIssue: async () => {},
   modifyIssue: async () => {},
-  removeIssue: async () => {},
+  removeIssue: async () => {}, 
 })
 
 export const useIssues = () => useContext(IssueContext)
