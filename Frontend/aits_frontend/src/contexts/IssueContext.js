@@ -34,7 +34,7 @@ export const IssueProvider = ({ children }) => {
     try {
       setLoading(true)
       setError(null)
-      const data = await getIssues()
+      const data = await getIssues() 
       setIssues(data)
       setLoading(false)
     } catch (error) {
