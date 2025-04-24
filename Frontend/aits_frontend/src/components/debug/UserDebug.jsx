@@ -13,7 +13,7 @@ const UserDebug = () => {
       <h3>User Debug Info</h3>
       <p>Is Authenticated: {isAuthenticated ? 'Yes' : 'No'}</p>
       <p>User ID: {user?.id || 'Not set'}</p>
-      <p>Username: {user?.username || 'Not set'}</p>
+      <p>Username: {user?.username || 'Not set'}</p> 
       <p>Role: {user?.role || 'Not set'}</p>
       <p>Full Name: {user?.first_name} {user?.last_name}</p>
       <pre>{JSON.stringify(user, null, 2)}</pre>
