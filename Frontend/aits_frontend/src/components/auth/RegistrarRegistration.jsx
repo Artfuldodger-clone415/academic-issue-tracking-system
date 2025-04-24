@@ -10,7 +10,7 @@ const RegistrarRegistration = () => {
     email: '',
     first_name: '',
     last_name: '',
-    phone_number: '',
+    phone_number: '', 
     college: '',
     password: '',
     password2: '',
