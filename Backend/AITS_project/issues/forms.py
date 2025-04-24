@@ -39,7 +39,7 @@ class CustomUserChangeForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['student_number'].required = False
-        self.fields['college'].required = False
+        self.fields['college'].required = False 
         self.fields['course_units'].required = False
          
     def clean(self):
