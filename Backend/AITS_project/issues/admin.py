@@ -42,6 +42,6 @@ class NotificationAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'  
 
 admin.site.register(User, CustomUserAdmin)
-admin.site.register(Issue, IssueAdmin)
-admin.site.register(Comment)
+admin.site.register(Issue, IssueAdmin) 
+admin.site.register(Comment) 
 admin.site.register(Notification, NotificationAdmin) 

@@ -96,11 +96,11 @@ class IssueSerializer(serializers.ModelSerializer):
     
     def update(self, instance, validated_data): 
         old_status = instance.status
-        old_assigned_to = instance.assigned_to
+        old_assigned_to = instance.assigned_to 
         
         # Update the instance
         for attr, value in validated_data.items(): 
-            setattr(instance, attr, value)
+            setattr(instance, attr, value) 
         
         instance.save()
         
@@ -109,13 +109,13 @@ class IssueSerializer(serializers.ModelSerializer):
             # Notify the creator
             Notification.objects.create(
                 user=instance.created_by,
-                notification_type=Notification.STATUS_CHANGED,
+                notification_type=Notification.STATUS_CHANGED, 
                 issue=instance,
                 message=f"Status of your issue '{instance.title}' has been changed to {instance.get_status_display()}"
             )
             
             # Notify the assigned user if any
-            if instance.assigned_to and instance.assigned_to != instance.created_by:
+            if instance.assigned_to and instance.assigned_to != instance.created_by: 
                 Notification.objects.create(
                     user=instance.assigned_to,
                     notification_type=Notification.STATUS_CHANGED,

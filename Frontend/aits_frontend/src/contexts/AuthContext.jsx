@@ -3,9 +3,9 @@
 import { createContext, useState, useContext, useEffect } from "react"
 import api from "../services/api"
 
-export const AuthContext = createContext({
+export const AuthContext = createContext({ 
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: false, 
   loading: true,
   login: async () => {},
   register: async () => {},
@@ -17,13 +17,13 @@ export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
     // Check if user is logged in on initial load
     const checkAuth = async () => {
       const token = localStorage.getItem("access_token")
-      if (token) {
+      if (token) { 
         try {
           // Set the token in the API headers
           api.defaults.headers.common["Authorization"] = `Bearer ${token}`

@@ -8,25 +8,25 @@ export const IssueContext = createContext({
   issues: [],
   loading: true,
   error: null,
-  fetchIssues: async () => {},
+  fetchIssues: async () => {}, 
   submitIssue: async () => {},
   modifyIssue: async () => {},
-  removeIssue: async () => {},
+  removeIssue: async () => {}, 
 })
 
-export const useIssues = () => useContext(IssueContext)
+export const useIssues = () => useContext(IssueContext) 
 
 export const IssueProvider = ({ children }) => {
   const [issues, setIssues] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null) 
   const { user } = useAuth()
 
   // Load issues when user is authenticated
   useEffect(() => {
     if (user) {
       fetchIssues()
-    }
+    } 
   }, [user])
 
   // Fetch issues from backend
@@ -34,7 +34,7 @@ export const IssueProvider = ({ children }) => {
     try {
       setLoading(true)
       setError(null)
-      const data = await getIssues()
+      const data = await getIssues() 
       setIssues(data)
       setLoading(false)
     } catch (error) {

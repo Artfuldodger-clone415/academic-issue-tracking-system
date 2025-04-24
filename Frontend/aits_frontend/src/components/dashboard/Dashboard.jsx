@@ -3,29 +3,29 @@
 
 import { useEffect, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
-import StudentDashboard from "./StudentDashboard"
+import StudentDashboard from "./StudentDashboard" 
 import LecturerDashboard from "./LecturerDashboard"
 import RegistrarDashboard from "./RegistrarDashboard"
-import api from "../../services/api"
+import api from "../../services/api" 
 
 const Dashboard = () => {
   const { user } = useAuth()
   const [stats, setStats] = useState({
-    totalIssues: 0,
+    totalIssues: 0, 
     pendingIssues: 0,
     resolvedIssues: 0,
     inProgressIssues: 0,
   })
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
         const response = await api.get("/issues/")
-        const issues = response.data
+        const issues = response.data 
 
         setStats({
-          totalIssues: issues.length,
+          totalIssues: issues.length, 
           pendingIssues: issues.filter((issue) => issue.status === "pending").length,
           inProgressIssues: issues.filter((issue) => issue.status === "in_progress").length,
           resolvedIssues: issues.filter((issue) => issue.status === "resolved").length,

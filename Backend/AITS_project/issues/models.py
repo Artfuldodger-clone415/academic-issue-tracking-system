@@ -13,7 +13,7 @@ class User(AbstractUser):
     ACADEMIC_REGISTRAR = 'academic_registrar'
     ADMIN = 'admin'
 
-    ROLE_CHOICES = [
+    ROLE_CHOICES = [ 
         (STUDENT, 'Student'),
         (LECTURER, 'Lecturer'),
         (ACADEMIC_REGISTRAR, 'Academic Registrar'),

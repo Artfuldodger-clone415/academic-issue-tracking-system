@@ -4,12 +4,12 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import api from "../../services/api"
 import { useAuth } from "../../contexts/AuthContext"
-
+ 
 const AssignedIssuesList = () => {
   const { user } = useAuth()
   const [issues, setIssues] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState("all")
+  const [filter, setFilter] = useState("all") 
 
   useEffect(() => {
     const fetchAssignedIssues = async () => {
@@ -19,7 +19,7 @@ const AssignedIssuesList = () => {
         const userIssues = response.data.filter((issue) => issue.assigned_to === user.id)
         setIssues(userIssues)
         setLoading(false)
-      } catch (error) {
+      } catch (error) { 
         console.error("Error fetching assigned issues:", error)
         setLoading(false)
       }
@@ -28,12 +28,12 @@ const AssignedIssuesList = () => {
     fetchAssignedIssues()
   }, [user.id])
 
-  const getStatusClass = (status) => {
+  const getStatusClass = (status) => { 
     switch (status) {
       case "pending":
         return "bg-yellow-100 text-yellow-800"
       case "in_progress":
-        return "bg-blue-100 text-blue-800"
+        return "bg-blue-100 text-blue-800" 
       case "resolved":
         return "bg-green-100 text-green-800"
       case "closed":

@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios'; 
 
-const LecturerRegistration = () => {
+const LecturerRegistration = () => { 
   const navigate = useNavigate();
   const [colleges, setColleges] = useState([]);
   const [courseUnits, setCourseUnits] = useState([]);
-  const [selectedCourseUnits, setSelectedCourseUnits] = useState([]);
+  const [selectedCourseUnits, setSelectedCourseUnits] = useState([]); 
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     first_name: '',
-    last_name: '',
+    last_name: '',  
     phone_number: '',
     college: '',
-    course_units: [],
+    course_units: [], 
     password: '',
     password2: '',
     role: 'lecturer'

@@ -9,17 +9,17 @@ const Sidebar = () => {
   const { user } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleSidebar = () => {
+  const toggleSidebar = () => { 
     setIsOpen(!isOpen)
   }
 
   // Define navigation items based on user role
   const getNavItems = () => {
     const commonItems = [
-      { to: "/dashboard", icon: <Home size={20} />, label: "Dashboard" },
+      { to: "/dashboard", icon: <Home size={20} />, label: "Dashboard" }, 
       { to: "/issues", icon: <FileText size={20} />, label: "Issues" },
       { to: "/profile", icon: <User size={20} />, label: "Profile" },
-    ]
+    ] 
 
     // Add role-specific items
     if (user?.role === "student") {
@@ -27,7 +27,7 @@ const Sidebar = () => {
         ...commonItems,
         { to: "/issues/create", icon: <PlusCircle size={20} />, label: "Create Issue" },
         { to: "/course-units", icon: <BookOpen size={20} />, label: "Course Units" },
-      ]
+      ] 
     } else if (user?.role === "lecturer") {
       return [
         ...commonItems,

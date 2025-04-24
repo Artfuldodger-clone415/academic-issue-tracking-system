@@ -5,17 +5,17 @@ import axios from 'axios';
 const StudentRegistration = () => {
   const navigate = useNavigate();
   const [colleges, setColleges] = useState([]);
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
+  const [formData, setFormData] = useState({ 
+    username: '', 
+    email: '', 
     first_name: '',
     last_name: '',
-    phone_number: '',
-    student_number: '',
-    college: '',
+    phone_number: '', 
+    student_number: '', 
+    college: '', 
     password: '',
     password2: '',
-    role: 'student'
+    role: 'student' 
   });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);

@@ -4,11 +4,11 @@ import { useState, useEffect, useRef } from "react"
 import api from "../../services/api"
 import { Bell } from "lucide-react"
 import NotificationList from "./NotificationList"
-
+ 
 const NotificationBell = () => {
   const [notifications, setNotifications] = useState([])
   const [unreadCount, setUnreadCount] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false) 
   const [loading, setLoading] = useState(true)
   const bellRef = useRef(null)
 
@@ -18,13 +18,13 @@ const NotificationBell = () => {
         const response = await api.get("/notifications/")
         const data = response.data
         setNotifications(data)
-        setUnreadCount(data.filter((n) => !n.is_read).length)
+        setUnreadCount(data.filter((n) => !n.is_read).length) 
         setLoading(false)
       } catch (error) {
         console.error("Error fetching notifications:", error)
         setLoading(false)
       }
-    }
+    } 
 
     fetchNotifications()
 

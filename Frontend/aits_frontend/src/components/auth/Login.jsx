@@ -7,7 +7,7 @@ import { LogIn, User } from "lucide-react"
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    username: "", 
     password: "",
   })
   const [error, setError] = useState(null)
@@ -16,32 +16,32 @@ const Login = () => {
   const { login } = useAuth()
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target 
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    setError(null)
+    setError(null) 
 
     try {
       console.log(`Submitting login form for: ${formData.username}`)
       const user = await login(formData.username, formData.password)
 
-      console.log(`Login successful, user role: ${user.role}`)
+      console.log(`Login successful, user role: ${user.role}`) 
 
       // Redirect to dashboard for all user types
-      navigate("/dashboard")
+      navigate("/dashboard") 
     } catch (error) {
       console.error("Login error details:", error.response?.data || error.message || error)
 
-      if (error.response?.status === 401) {
-        setError("Invalid username or password. Please try again.")
+      if (error.response?.status === 401) { 
+        setError("Invalid username or password. Please try again.") 
       } else {
         setError(`Login failed: ${error.response?.data?.detail || error.message || "Unknown error"}`)
       }
-
+ 
       setLoading(false)
     }
   }
