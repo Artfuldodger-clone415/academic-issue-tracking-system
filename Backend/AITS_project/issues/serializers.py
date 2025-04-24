@@ -96,7 +96,7 @@ class IssueSerializer(serializers.ModelSerializer):
     
     def update(self, instance, validated_data): 
         old_status = instance.status
-        old_assigned_to = instance.assigned_to
+        old_assigned_to = instance.assigned_to 
         
         # Update the instance
         for attr, value in validated_data.items(): 
