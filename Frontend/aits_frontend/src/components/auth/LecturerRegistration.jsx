@@ -14,7 +14,7 @@ const LecturerRegistration = () => {
     last_name: '',  
     phone_number: '',
     college: '',
-    course_units: [],
+    course_units: [], 
     password: '',
     password2: '',
     role: 'lecturer'
