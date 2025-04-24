@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     // Check if user is logged in on initial load
     const checkAuth = async () => {
       const token = localStorage.getItem("access_token")
-      if (token) {
+      if (token) { 
         try {
           // Set the token in the API headers
           api.defaults.headers.common["Authorization"] = `Bearer ${token}`
