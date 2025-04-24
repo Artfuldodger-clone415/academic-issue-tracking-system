@@ -17,7 +17,7 @@ const RoleSelection = () => {
             <Link to="/register/lecturer" className="btn btn-primary p-4 text-center">
               Register as Lecturer 
             </Link>
-            <Link to="/register/registrar" className="btn btn-primary p-4 text-center">
+            <Link to="/register/registrar" className="btn btn-primary p-4 text-center"> 
               Register as Academic Registrar 
             </Link>
           </div>
