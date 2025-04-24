@@ -8,7 +8,7 @@ export const IssueContext = createContext({
   issues: [],
   loading: true,
   error: null,
-  fetchIssues: async () => {},
+  fetchIssues: async () => {}, 
   submitIssue: async () => {},
   modifyIssue: async () => {},
   removeIssue: async () => {},
