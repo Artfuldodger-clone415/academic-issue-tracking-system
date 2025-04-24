@@ -5,7 +5,7 @@ import api from "../services/api"
 
 export const AuthContext = createContext({
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: false, 
   loading: true,
   login: async () => {},
   register: async () => {},
