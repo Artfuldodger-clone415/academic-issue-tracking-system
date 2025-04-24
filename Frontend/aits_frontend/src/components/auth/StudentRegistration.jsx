@@ -10,7 +10,7 @@ const StudentRegistration = () => {
     email: '',
     first_name: '',
     last_name: '',
-    phone_number: '',
+    phone_number: '', 
     student_number: '', 
     college: '', 
     password: '',
