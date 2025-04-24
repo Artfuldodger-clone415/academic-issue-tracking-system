@@ -61,7 +61,7 @@ class IssueForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = ('title', 'description', 'assigned_to', 'status')
-        widgets = { 
+        widgets = {  
             'description': forms.Textarea(attrs={'rows': 4}),
         } 
 
