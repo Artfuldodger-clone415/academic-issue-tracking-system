@@ -7,7 +7,7 @@ import { LogIn, User } from "lucide-react"
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    username: "", 
     password: "",
   })
   const [error, setError] = useState(null)
