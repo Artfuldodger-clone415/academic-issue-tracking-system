@@ -92,7 +92,7 @@ body {
   font-size: 1.25rem;
   color: var(--primary);
   background-color: var(--primary-light);
-}
+} 
 
 .loading {
   display: flex;
