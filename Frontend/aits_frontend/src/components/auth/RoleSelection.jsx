@@ -11,7 +11,7 @@ const RoleSelection = () => {
         </div>
         <div className="card-body"> 
           <div className="grid grid-cols-1 gap-4">
-            <Link to="/register/student" className="btn btn-primary p-4 text-center"> 
+            <Link to="/register/student" className="btn btn-primary p-4 text-center">  
               Register as Student
             </Link>
             <Link to="/register/lecturer" className="btn btn-primary p-4 text-center">
