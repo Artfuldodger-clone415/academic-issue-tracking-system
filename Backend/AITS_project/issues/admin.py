@@ -43,5 +43,5 @@ class NotificationAdmin(admin.ModelAdmin):
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Issue, IssueAdmin) 
-admin.site.register(Comment)
+admin.site.register(Comment) 
 admin.site.register(Notification, NotificationAdmin) 
