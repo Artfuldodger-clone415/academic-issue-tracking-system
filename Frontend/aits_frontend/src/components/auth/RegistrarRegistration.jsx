@@ -20,7 +20,7 @@ const RegistrarRegistration = () => {
   const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
-    axios.get('/api/colleges/')
+    axios.get('/api/colleges/') 
       .then(response => {
         setColleges(response.data);
       })
