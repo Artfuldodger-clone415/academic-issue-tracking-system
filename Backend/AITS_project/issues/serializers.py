@@ -115,7 +115,7 @@ class IssueSerializer(serializers.ModelSerializer):
             )
             
             # Notify the assigned user if any
-            if instance.assigned_to and instance.assigned_to != instance.created_by:
+            if instance.assigned_to and instance.assigned_to != instance.created_by: 
                 Notification.objects.create(
                     user=instance.assigned_to,
                     notification_type=Notification.STATUS_CHANGED,
