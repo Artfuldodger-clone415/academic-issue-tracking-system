@@ -7,12 +7,12 @@ import { useAuth } from "../../contexts/AuthContext"
 import {
   BarChart,
   Bar,
-  XAxis,
+  XAxis, 
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  PieChart,
+  PieChart, 
   Pie,
   Cell,
   Legend,
@@ -20,15 +20,15 @@ import {
 
 const RegistrarDashboard = ({ stats }) => {
   const { user } = useAuth()
-  const [allIssues, setAllIssues] = useState([])
+  const [allIssues, setAllIssues] = useState([]) 
   const [collegeStats, setCollegeStats] = useState([])
   const [loading, setLoading] = useState(true)
-  const [priorityIssues, setPriorityIssues] = useState([])
+  const [priorityIssues, setPriorityIssues] = useState([]) 
 
   useEffect(() => {
     const fetchAllIssues = async () => {
       try {
-        const response = await api.get("/issues/")
+        const response = await api.get("/issues/") 
         const issues = response.data
         setAllIssues(issues)
 
@@ -36,7 +36,7 @@ const RegistrarDashboard = ({ stats }) => {
         const collegeMap = {}
         issues.forEach((issue) => {
           const createdBy = issue.created_by_name
-          const college = issue.college || "Unknown"
+          const college = issue.college || "Unknown" 
 
           if (!collegeMap[college]) {
             collegeMap[college] = { name: college, count: 0 }
@@ -46,7 +46,7 @@ const RegistrarDashboard = ({ stats }) => {
 
         setCollegeStats(Object.values(collegeMap))
 
-        // Identify priority issues (pending for more than 7 days)
+        // Identify priority issues (pending for more than 7 days) 
         const sevenDaysAgo = new Date()
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
 
