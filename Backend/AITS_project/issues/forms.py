@@ -45,7 +45,7 @@ class CustomUserChangeForm(UserChangeForm):
     def clean(self):
         cleaned_data = super().clean()
         role = cleaned_data.get('role') 
-        
+         
         if role == User.STUDENT:
             if not cleaned_data.get('student_number'):
                 self.add_error('student_number', 'Student number is required for students')
