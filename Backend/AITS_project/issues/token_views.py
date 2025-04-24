@@ -29,7 +29,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             # Log authentication failure
             username = attrs.get('username', 'unknown')
             logger.error(f"Authentication failed for {username}: {str(e)}")
-            raise
+            raise 
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
