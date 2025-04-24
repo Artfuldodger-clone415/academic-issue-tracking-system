@@ -60,7 +60,7 @@ class CustomUserChangeForm(UserChangeForm):
 class IssueForm(forms.ModelForm): 
     class Meta:
         model = Issue
-        fields = ('title', 'description', 'assigned_to', 'status')
+        fields = ('title', 'description', 'assigned_to', 'status') 
         widgets = {  
             'description': forms.Textarea(attrs={'rows': 4}),
         } 
