@@ -19,7 +19,7 @@ export const useIssues = () => useContext(IssueContext)
 export const IssueProvider = ({ children }) => {
   const [issues, setIssues] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null) 
   const { user } = useAuth()
 
   // Load issues when user is authenticated
