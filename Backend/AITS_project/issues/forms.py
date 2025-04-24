@@ -50,7 +50,7 @@ class CustomUserChangeForm(UserChangeForm):
             if not cleaned_data.get('student_number'):
                 self.add_error('student_number', 'Student number is required for students')
             if not cleaned_data.get('college'):
-                self.add_error('college', 'College is required for students')
+                self.add_error('college', 'College is required for students') 
         elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]: 
             if not cleaned_data.get('college'): 
                 self.add_error('college', 'College is required')
