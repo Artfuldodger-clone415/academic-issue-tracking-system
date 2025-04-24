@@ -14,7 +14,7 @@ const RegistrarRegistration = () => {
     college: '',
     password: '',
     password2: '',
-    role: 'academic_registrar'm 
+    role: 'academic_registrar'
   });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
