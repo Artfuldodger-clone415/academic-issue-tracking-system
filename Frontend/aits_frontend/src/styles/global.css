@@ -42,7 +42,7 @@
 .dark {
   --background: #1f2937;
   --foreground: #f9fafb;
-  --muted: #374151;
+  --muted: #374151; 
   --muted-foreground: #9ca3af;
   --border: #374151;
   --input: #374151;
