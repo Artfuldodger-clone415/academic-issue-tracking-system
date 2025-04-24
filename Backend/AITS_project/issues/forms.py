@@ -55,7 +55,7 @@ class CustomUserChangeForm(UserChangeForm):
             if not cleaned_data.get('college'):
                 self.add_error('college', 'College is required')
                 
-        return cleaned_data
+        return cleaned_data 
 
 class IssueForm(forms.ModelForm): 
     class Meta:
