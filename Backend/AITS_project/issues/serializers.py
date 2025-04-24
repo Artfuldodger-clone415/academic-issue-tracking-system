@@ -100,7 +100,7 @@ class IssueSerializer(serializers.ModelSerializer):
         
         # Update the instance
         for attr, value in validated_data.items(): 
-            setattr(instance, attr, value)
+            setattr(instance, attr, value) 
         
         instance.save()
         
