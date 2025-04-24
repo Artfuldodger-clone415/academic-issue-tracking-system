@@ -25,7 +25,7 @@ const RegistrarRegistration = () => {
         setColleges(response.data);
       })
       .catch(error => {
-        console.error('Error fetching colleges:', error);
+        console.error('Error fetching colleges:', error); 
       });
   }, []);
 
