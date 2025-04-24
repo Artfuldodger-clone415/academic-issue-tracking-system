@@ -19,7 +19,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                 'last_name': user.last_name,
                 'email': user.email,
                 'college': user.college
-            })
+            }) 
             
             # Log successful authentication
             logger.info(f"User authenticated: {user.username}, Role: {user.role}")
