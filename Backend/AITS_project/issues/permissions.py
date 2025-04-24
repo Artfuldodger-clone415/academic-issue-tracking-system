@@ -2,18 +2,18 @@ from rest_framework import permissions
 from .models import User
 
 class IsAdminUser(permissions.BasePermission): 
-    def has_permission(self, request, view):
+    def has_permission(self, request, view): 
         return request.user and request.user.role == User.ADMIN 
 
-class IsAcademicRegistrar(permissions.BasePermission): 
+class IsAcademicRegistrar(permissions.BasePermission):  
     def has_permission(self, request, view):
         return request.user and request.user.role == User.ACADEMIC_REGISTRAR  
 
-class IsLecturer(permissions.BasePermission): 
+class IsLecturer(permissions.BasePermission):  
     def has_permission(self, request, view):
         return request.user and request.user.role == User.LECTURER 
 
-class IsStudent(permissions.BasePermission): 
+ class IsStudent(permissions.BasePermission): 
     def has_permission(self, request, view):
         return request.user and request.user.role == User.STUDENT 
 
