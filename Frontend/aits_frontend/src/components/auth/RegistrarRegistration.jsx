@@ -17,7 +17,7 @@ const RegistrarRegistration = () => {
     role: 'academic_registrar'
   });
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
     axios.get('/api/colleges/')
