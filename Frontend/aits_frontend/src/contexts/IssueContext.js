@@ -14,7 +14,7 @@ export const IssueContext = createContext({
   removeIssue: async () => {}, 
 })
 
-export const useIssues = () => useContext(IssueContext)
+export const useIssues = () => useContext(IssueContext) 
 
 export const IssueProvider = ({ children }) => {
   const [issues, setIssues] = useState([])
