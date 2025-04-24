@@ -63,7 +63,7 @@ class IssueForm(forms.ModelForm):
         fields = ('title', 'description', 'assigned_to', 'status')
         widgets = { 
             'description': forms.Textarea(attrs={'rows': 4}),
-        }
+        } 
 
 class CommentForm(forms.ModelForm): 
     class Meta:
