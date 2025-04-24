@@ -32,7 +32,7 @@ const Login = () => {
       console.log(`Login successful, user role: ${user.role}`) 
 
       // Redirect to dashboard for all user types
-      navigate("/dashboard")
+      navigate("/dashboard") 
     } catch (error) {
       console.error("Login error details:", error.response?.data || error.message || error)
 
