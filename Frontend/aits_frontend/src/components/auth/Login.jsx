@@ -41,7 +41,7 @@ const Login = () => {
       } else {
         setError(`Login failed: ${error.response?.data?.detail || error.message || "Unknown error"}`)
       }
-
+ 
       setLoading(false)
     }
   }
