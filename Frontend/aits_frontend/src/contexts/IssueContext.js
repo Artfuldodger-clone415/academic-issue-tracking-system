@@ -26,7 +26,7 @@ export const IssueProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       fetchIssues()
-    }
+    } 
   }, [user])
 
   // Fetch issues from backend
