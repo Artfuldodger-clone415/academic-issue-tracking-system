@@ -36,7 +36,7 @@ const Login = () => {
     } catch (error) {
       console.error("Login error details:", error.response?.data || error.message || error)
 
-      if (error.response?.status === 401) {
+      if (error.response?.status === 401) { 
         setError("Invalid username or password. Please try again.") 
       } else {
         setError(`Login failed: ${error.response?.data?.detail || error.message || "Unknown error"}`)
