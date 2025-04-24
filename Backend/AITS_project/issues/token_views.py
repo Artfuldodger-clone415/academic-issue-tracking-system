@@ -18,7 +18,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                 'first_name': user.first_name,
                 'last_name': user.last_name,
                 'email': user.email,
-                'college': user.college
+                'college': user.college 
             }) 
             
             # Log successful authentication
