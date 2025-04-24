@@ -109,7 +109,7 @@ class IssueSerializer(serializers.ModelSerializer):
             # Notify the creator
             Notification.objects.create(
                 user=instance.created_by,
-                notification_type=Notification.STATUS_CHANGED,
+                notification_type=Notification.STATUS_CHANGED, 
                 issue=instance,
                 message=f"Status of your issue '{instance.title}' has been changed to {instance.get_status_display()}"
             )
