@@ -10,7 +10,7 @@ import api from "../../services/api"
 
 const Dashboard = () => {
   const { user } = useAuth()
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState({ 
     totalIssues: 0,
     pendingIssues: 0,
     resolvedIssues: 0,
