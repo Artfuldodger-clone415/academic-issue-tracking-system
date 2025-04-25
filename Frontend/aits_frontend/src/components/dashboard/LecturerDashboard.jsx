@@ -8,7 +8,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const LecturerDashboard = ({ stats }) => {
   const { user } = useAuth()
-  const [assignedIssues, setAssignedIssues] = useState([])
+  const [assignedIssues, setAssignedIssues] = useState([]) 
   const [loading, setLoading] = useState(true)
   const [chartData, setChartData] = useState([]) 
 
