@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import Issue, Comment, Notification
+from .models import Issue, Comment, Notification 
 
 User = get_user_model()
 

@@ -6,8 +6,10 @@ const StudentRegistration = () => {
   const navigate = useNavigate();
   const [colleges, setColleges] = useState([]);
   const [formData, setFormData] = useState({ 
-    username: '', 
-    email: '', 
+
+    username: '',
+    email: '',
+
     first_name: '',
     last_name: '',
     phone_number: '', 

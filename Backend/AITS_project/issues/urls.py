@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_nested import routers
 from rest_framework_simplejwt.views import TokenRefreshView
-# In issues/urls.py
+# In issues/urls.py 
 from .token_views import CustomTokenObtainPairView
 from .token_views import CustomTokenObtainPairView
 from .views import (

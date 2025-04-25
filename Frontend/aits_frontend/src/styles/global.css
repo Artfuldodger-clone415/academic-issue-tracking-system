@@ -12,9 +12,9 @@
 
   /* Status Colors */
   --status-pending: #ffa500;
-  --status-in-progress: #3b82f6;
+  --status-in-progress: #3b82f6; 
   --status-resolved: #10b981;
-  --status-closed: #6b7280;
+  --status-closed: #6b7280; 
 
   /* UI Colors */
   --success: #10b981;
