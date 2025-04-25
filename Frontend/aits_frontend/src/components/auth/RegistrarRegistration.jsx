@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RegistrarRegistration = () => {
   const navigate = useNavigate();
   const [colleges, setColleges] = useState([]);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ 
     username: '',
     email: '',
     first_name: '',
     last_name: '',
-    phone_number: '',
+    phone_number: '', 
     college: '',
     password: '',
     password2: '',
     role: 'academic_registrar'
   });
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
-    axios.get('/api/colleges/')
+    axios.get('/api/colleges/') 
       .then(response => {
         setColleges(response.data);
       })
       .catch(error => {
-        console.error('Error fetching colleges:', error);
+        console.error('Error fetching colleges:', error); 
       });
   }, []);
 
@@ -36,7 +36,7 @@ const RegistrarRegistration = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     setIsLoading(true);
     setErrors({});

@@ -7,13 +7,13 @@ def get_default_user():
     return User.objects.first().id  # Adjust logic if needed
 
 
-class User(AbstractUser):
+class User(AbstractUser): 
     STUDENT = 'student'
     LECTURER = 'lecturer'
     ACADEMIC_REGISTRAR = 'academic_registrar'
     ADMIN = 'admin'
 
-    ROLE_CHOICES = [
+    ROLE_CHOICES = [ 
         (STUDENT, 'Student'),
         (LECTURER, 'Lecturer'),
         (ACADEMIC_REGISTRAR, 'Academic Registrar'),
@@ -29,7 +29,7 @@ class User(AbstractUser):
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}".strip()
-
+    
 class Issue(models.Model):
     PENDING = 'pending'
     IN_PROGRESS = 'in_progress'
@@ -70,28 +70,28 @@ class Issue(models.Model):
     def get_status_display(self):
         return dict(self.STATUS_CHOICES).get(self.status, self.status)
 
-class Comment(models.Model):
+class Comment(models.Model): 
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name='comments')
     content = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True) 
     
     def __str__(self):
         return f"Comment on {self.issue.title} by {self.created_by.get_full_name()}"
 
-class Notification(models.Model):
-    ISSUE_CREATED = 'issue_created'
+class Notification(models.Model): 
+    ISSUE_CREATED = 'issue_created' 
     ISSUE_UPDATED = 'issue_updated'
     STATUS_CHANGED = 'status_changed'
-    COMMENT_ADDED = 'comment_added'
-    ASSIGNED = 'assigned'
+    COMMENT_ADDED = 'comment_added'  
+    ASSIGNED = 'assigned' 
     
     NOTIFICATION_TYPES = [
         (ISSUE_CREATED, 'Issue Created'),
-        (ISSUE_UPDATED, 'Issue Updated'),
-        (STATUS_CHANGED, 'Status Changed'),
+        (ISSUE_UPDATED, 'Issue Updated'), 
+        (STATUS_CHANGED, 'Status Changed'), 
         (COMMENT_ADDED, 'Comment Added'),
-        (ASSIGNED, 'Assigned'),
+        (ASSIGNED, 'Assigned'), 
     ]
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
@@ -102,7 +102,7 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        ordering = ['-created_at']
-    
+        ordering = ['-created_at'] 
+     
     def __str__(self):
-        return f"{self.notification_type} for {self.user.username}"
+        return f"{self.notification_type} for {self.user.username}"  

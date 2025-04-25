@@ -2,18 +2,18 @@
 import { Link } from "react-router-dom"
 import api from "../../services/api"
 import { X, Check, AlertCircle, MessageSquare, Clock, User } from "lucide-react"
-
+ 
 const NotificationList = ({ notifications, loading, onUpdate, onClose }) => {
   const markAsRead = async (id) => {
     try {
       await api.post(`/notifications/${id}/mark_read/`)
       const updatedNotifications = notifications.map((notification) =>
-        notification.id === id ? { ...notification, is_read: true } : notification,
+        notification.id === id ? { ...notification, is_read: true } : notification, 
       )
 
       onUpdate(updatedNotifications)
     } catch (error) {
-      console.error("Error marking notification as read:", error)
+      console.error("Error marking notification as read:", error) 
     }
   }
 
@@ -24,7 +24,7 @@ const NotificationList = ({ notifications, loading, onUpdate, onClose }) => {
       onUpdate(updatedNotifications)
     } catch (error) {
       console.error("Error marking all notifications as read:", error)
-    }
+    } 
   }
 
   const getNotificationIcon = (type) => {

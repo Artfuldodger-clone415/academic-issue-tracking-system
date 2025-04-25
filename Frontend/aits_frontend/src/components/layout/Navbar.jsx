@@ -7,10 +7,10 @@ import { Link } from "react-router-dom"
 const Navbar = () => {
   const { user, logout } = useAuth()
 
-  return (
+  return ( 
     <header className="navbar">
       <div className="navbar-brand">
-        <img src="/logo.png" alt="Makerere University Logo" />
+        <img src="/logo.png" alt="Makerere University Logo" /> 
         <h1>Makerere University Issue Tracking System</h1>
       </div>
 
@@ -18,7 +18,7 @@ const Navbar = () => {
         <NotificationBell />
 
         <div className="dropdown">
-          <button className="dropdown-toggle">
+          <button className="dropdown-toggle"> 
             <div className="user-avatar">
               {user?.profile_photo ? (
                 <img src={user.profile_photo || "/placeholder.svg"} alt={`${user.first_name}'s avatar`} />
@@ -26,11 +26,11 @@ const Navbar = () => {
                 <>
                   {user?.first_name?.[0]}
                   {user?.last_name?.[0]}
-                </>
+                </> 
               )}
             </div>
             <span className="user-name">{user?.first_name}</span>
-          </button>
+          </button> 
 
           <div className="dropdown-menu">
             <div className="dropdown-header">
@@ -46,7 +46,7 @@ const Navbar = () => {
 
             <Link to="/profile" className="dropdown-item">
               <User size={16} />
-              <span>Profile</span>
+              <span>Profile</span> 
             </Link>
 
             {user?.role === "academic_registrar" && (

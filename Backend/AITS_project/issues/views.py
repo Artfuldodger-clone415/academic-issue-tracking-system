@@ -8,60 +8,60 @@ from django.contrib.auth import get_user_model
 from django.db.models import Count
 from .models import Issue, Comment, User, Notification
 from .serializers import (
-    UserSerializer, 
-    UserProfileSerializer,
-    UserListSerializer,
-    IssueSerializer, 
-    CommentSerializer,
-    NotificationSerializer
+    UserSerializer,  
+    UserProfileSerializer, 
+    UserListSerializer, 
+    IssueSerializer,  
+    CommentSerializer, 
+    NotificationSerializer 
 )
 from .permissions import IsAdminUser, IsAcademicRegistrar, IsLecturer, IsOwnerOrReadOnly, IsLecturerAssignedToIssue
 
 
-class RegisterView(generics.CreateAPIView):
+class RegisterView(generics.CreateAPIView):   
     queryset = User.objects.all()
     permission_classes = (permissions.AllowAny,) 
-    serializer_class = UserSerializer
+    serializer_class = UserSerializer 
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
         # Additional validation for role-specific fields
-        role = serializer.validated_data.get('role')
+        role = serializer.validated_data.get('role') 
         if role == User.STUDENT and not serializer.validated_data.get('student_number'):
             return Response(
                 {"student_number": "Student number is required for students."},
                 status=status.HTTP_400_BAD_REQUEST
             )
-        if not serializer.validated_data.get('college'):
+        if not serializer.validated_data.get('college'): 
             if role == User.STUDENT:
                 return Response(
                     {"college": "College is required for students."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]:
+            elif role in [User.LECTURER, User.ACADEMIC_REGISTRAR]: 
                 return Response(
                     {"college": "College is required."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
         
-        self.perform_create(serializer)
+        self.perform_create(serializer) 
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-class UserProfileView(generics.RetrieveUpdateAPIView):
-    serializer_class = UserProfileSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+class UserProfileView(generics.RetrieveUpdateAPIView):  
+    serializer_class = UserProfileSerializer 
+    permission_classes = (permissions.IsAuthenticated,) 
     
     def get_object(self):
         return self.request.user
 
-class UserListView(generics.ListAPIView):
+class UserListView(generics.ListAPIView): 
     serializer_class = UserListSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,) 
     
-    def get_queryset(self):
+    def get_queryset(self): 
         role = self.kwargs.get('role') or self.request.query_params.get('role')
         if role:
             return User.objects.filter(role=role)
@@ -71,28 +71,28 @@ class IssueViewSet(viewsets.ModelViewSet):
     queryset = Issue.objects.all()
     serializer_class = IssueSerializer
     
-    def get_permissions(self):
+    def get_permissions(self): 
         if self.action in ['create']:
-            permission_classes = [permissions.IsAuthenticated]
+            permission_classes = [permissions.IsAuthenticated] 
         elif self.action in ['update', 'partial_update', 'destroy']:
-            permission_classes = [IsOwnerOrReadOnly | IsAdminUser | IsAcademicRegistrar]
+            permission_classes = [IsOwnerOrReadOnly | IsAdminUser | IsAcademicRegistrar] 
         elif self.action in ['request_info']:
             permission_classes = [permissions.IsAuthenticated, IsLecturerAssignedToIssue]
         else:
-            permission_classes = [permissions.IsAuthenticated]
-        return [permission() for permission in permission_classes]
+            permission_classes = [permissions.IsAuthenticated] 
+        return [permission() for permission in permission_classes] 
     
-    def get_queryset(self):
-        user = self.request.user
-        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR:
+    def get_queryset(self): 
+        user = self.request.user 
+        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR: 
             return Issue.objects.all()
-        elif user.role == User.LECTURER:
+        elif user.role == User.LECTURER: 
             return Issue.objects.filter(assigned_to=user) | Issue.objects.filter(created_by=user)
         else:  # Student
-            return Issue.objects.filter(created_by=user)
+            return Issue.objects.filter(created_by=user) 
     
     @action(detail=True, methods=['post'])
-    def assign(self, request, pk=None):
+    def assign(self, request, pk=None): 
         issue = self.get_object()
         user_id = request.data.get('user_id')
         
@@ -100,23 +100,23 @@ class IssueViewSet(viewsets.ModelViewSet):
             return Response({"error": "User ID is required"}, status=status.HTTP_400_BAD_REQUEST)
         
         try:
-            user = User.objects.get(id=user_id)
+            user = User.objects.get(id=user_id) 
             if user.role not in [User.LECTURER, User.ACADEMIC_REGISTRAR, User.ADMIN]:
                 return Response({"error": "Can only assign to staff members"}, status=status.HTTP_400_BAD_REQUEST)
             
             issue.assigned_to = user
-            issue.save(update_fields=['assigned_to'])
+            issue.save(update_fields=['assigned_to']) 
             
             Notification.objects.create(
                 user=user,
-                notification_type=Notification.ASSIGNED,
+                notification_type=Notification.ASSIGNED, 
                 issue=issue,
                 message=f"Issue '{issue.title}' has been assigned to you by {request.user.get_full_name()}"
             )
             
             return Response(IssueSerializer(issue).data)
         except User.DoesNotExist:
-            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND) 
     
     @action(detail=False, methods=['get'])
     def stats(self, request):
@@ -124,12 +124,12 @@ class IssueViewSet(viewsets.ModelViewSet):
         user = request.user
         
         # Base queryset depends on user role
-        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR:
-            queryset = Issue.objects.all()
-        elif user.role == User.LECTURER:
+        if user.role == User.ADMIN or user.role == User.ACADEMIC_REGISTRAR: 
+            queryset = Issue.objects.all() 
+        elif user.role == User.LECTURER: 
             queryset = Issue.objects.filter(assigned_to=user) | Issue.objects.filter(created_by=user)
         else:  # Student
-            queryset = Issue.objects.filter(created_by=user)
+            queryset = Issue.objects.filter(created_by=user) 
         
         # Count issues by status
         status_counts = queryset.values('status').annotate(count=Count('status'))
@@ -169,15 +169,15 @@ class IssueViewSet(viewsets.ModelViewSet):
         )
         
         # Update the issue status to in_progress if it's pending
-        if issue.status == Issue.PENDING:
-            issue.status = Issue.IN_PROGRESS
+        if issue.status == Issue.PENDING: 
+            issue.status = Issue.IN_PROGRESS 
             issue.save(update_fields=['status'])
-        
+         
         return Response({
             'success': True,
-            'comment': CommentSerializer(comment).data,
+            'comment': CommentSerializer(comment).data, 
             'issue': IssueSerializer(issue).data
-        })
+        }) 
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
@@ -194,14 +194,14 @@ class CommentViewSet(viewsets.ModelViewSet):
             permission_classes = [permissions.IsAuthenticated]
         return [permission() for permission in permission_classes]
 
-class NotificationViewSet(viewsets.ModelViewSet):
-    serializer_class = NotificationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class NotificationViewSet(viewsets.ModelViewSet): 
+    serializer_class = NotificationSerializer 
+    permission_classes = [permissions.IsAuthenticated] 
     
     def get_queryset(self):
-        return Notification.objects.filter(user=self.request.user)
+        return Notification.objects.filter(user=self.request.user) 
     
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['post']) 
     def mark_all_read(self, request):
         notifications = Notification.objects.filter(user=request.user, is_read=False)
         notifications.update(is_read=True)
@@ -277,9 +277,9 @@ class DashboardView(APIView):
             }
         }
         
-        # Role-specific data
+        # Role-specific data  
         if user.role == User.STUDENT:
-            # Get student's issues
+            # Get student's issues  
             issues = Issue.objects.filter(created_by=user)
             data['issues'] = {
                 'total': issues.count(),
