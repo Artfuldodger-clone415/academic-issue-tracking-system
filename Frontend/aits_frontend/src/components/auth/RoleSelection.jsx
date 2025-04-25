@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const RoleSelection = () => {
   return (
     <div className="container">
-      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}>
+      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}> 
         <div className="card-header">
           <h2 className="text-center">Choose Your Role</h2>
         </div>
