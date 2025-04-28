@@ -159,6 +159,8 @@ class IssueViewSet(viewsets.ModelViewSet):
             content=message,
             created_by=request.user
         )
+
+
         
         # Notify the student who created the issue
         Notification.objects.create(
@@ -333,7 +335,7 @@ class DashboardView(APIView):
             unassigned = Issue.objects.filter(assigned_to__isnull=True).order_by('-created_at')[:5]
             data['unassigned_issues'] = IssueSerializer(unassigned, many=True).data
         
-        # Get unread notifications count
+        # Get unread notifications counted
         data['unread_notifications'] = Notification.objects.filter(user=user, is_read=False).count()
         
         return Response(data)
