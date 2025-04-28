@@ -6,6 +6,8 @@ import { useAuth } from "../../contexts/AuthContext"
 import api, { getLecturers } from "../../services/api"
 import { MessageSquare, Edit, Trash2, AlertCircle, Clock, Check, X } from "lucide-react"
 
+
+
 const IssueDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
