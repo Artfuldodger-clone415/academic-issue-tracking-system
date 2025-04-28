@@ -47,7 +47,7 @@ api.interceptors.response.use(
 
         const { access } = response.data
 
-        // Save the new token
+        // Save the new  usertoken
         localStorage.setItem("access_token", access)
 
         // Update the header
