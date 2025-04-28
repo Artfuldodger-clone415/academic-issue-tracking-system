@@ -1,6 +1,8 @@
 // src/components/debug/UserDebug.jsx
 "use client"
 
+
+
 import { useAuth } from "../../contexts/AuthContext" 
 
 const UserDebug = () => {
