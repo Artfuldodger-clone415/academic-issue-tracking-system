@@ -12,7 +12,9 @@ export const AuthContext = createContext({
   logout: () => {},
   updateUser: async () => {},
 })
-     
+
+
+
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
@@ -110,6 +112,10 @@ export const AuthProvider = ({ children }) => {
     window.location.href = "/login"
   }
 
+
+
+
+  
   const updateUser = async (userData) => {
     try {
       const response = await api.patch("/profile/", userData)
