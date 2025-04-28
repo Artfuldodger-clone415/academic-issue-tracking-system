@@ -6,6 +6,7 @@ import api from "../../services/api"
 import { useAuth } from "../../contexts/AuthContext"
 
 
+
 const IssueDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
