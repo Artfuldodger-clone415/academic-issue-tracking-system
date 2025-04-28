@@ -22,7 +22,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS: 
             return True
         return obj.created_by == request.user 
-
+#added lecturer  another role
 class IsLecturerAssignedToIssue(permissions.BasePermission): 
     """
     Custom permission to only allow lecturers assigned to an issue to perform actions.

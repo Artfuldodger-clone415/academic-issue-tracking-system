@@ -21,10 +21,13 @@ import NotFound from "./components/NotFound"
 // Context
 import { AuthProvider, useAuth } from "./contexts/AuthContext"
 
+
+
+
 // Styles
 import "./styles/global.css"
 
-// Set up axios defaults
+// Set up axios defaults to call api requests
 axios.defaults.baseURL = "http://localhost:8000"
 
 function App() {

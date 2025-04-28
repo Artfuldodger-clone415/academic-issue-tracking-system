@@ -6,6 +6,7 @@ import { useAuth } from "../../contexts/AuthContext"
 import UserDebug from "../debug/UserDebug"
 
 
+
 {process.env.NODE_ENV === 'development' && <UserDebug />}
 
 const Layout = () => {

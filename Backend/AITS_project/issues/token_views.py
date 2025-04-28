@@ -3,7 +3,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 import logging
 
 logger = logging.getLogger(__name__)
- 
+ # Tpken craetion and validation
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         try:

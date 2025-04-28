@@ -46,7 +46,7 @@ urlpatterns = [
     path('course-units/', CourseUnitsView.as_view(), name='course-units'),
     path('role-fields/', RoleFieldsView.as_view(), name='role-fields'),
     
-    # Filter users by role
+    # Filter users by roles
     path('lecturers/', UserListView.as_view(), {'role': User.LECTURER}, name='lecturers'),
     path('students/', UserListView.as_view(), {'role': User.STUDENT}, name='students'),
     path('registrars/', UserListView.as_view(), {'role': User.ACADEMIC_REGISTRAR}, name='registrars'),
