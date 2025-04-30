@@ -60,7 +60,7 @@ class Issue(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_issues')
     assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_issues')
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True) s
+    updated_at = models.DateTimeField(auto_now=True) 
     course_unit = models.CharField(max_length=100, blank=True, null=True)
     college = models.CharField(max_length=100, blank=True, null=True)
     
