@@ -81,7 +81,7 @@ class Comment(models.Model):
 
 class Notification(models.Model): 
     ISSUE_CREATED = 'issue_created' 
-    ISSUE_UPDATED = 'issue_updated'
+    ISSUE_UPDATED = 'issue_updated' 
     STATUS_CHANGED = 'status_changed'
     COMMENT_ADDED = 'comment_added'  
     ASSIGNED = 'assigned' 
