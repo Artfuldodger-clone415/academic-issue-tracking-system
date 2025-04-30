@@ -90,7 +90,7 @@ class Notification(models.Model):
         (ISSUE_CREATED, 'Issue Created'),
         (ISSUE_UPDATED, 'Issue Updated'), 
         (STATUS_CHANGED, 'Status Changed'), 
-        (COMMENT_ADDED, 'Comment Added'),
+        (COMMENT_ADDED, 'Comment Added'), 
         (ASSIGNED, 'Assigned'), 
     ]
     
