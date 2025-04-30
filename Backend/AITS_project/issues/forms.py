@@ -35,7 +35,7 @@ class CustomUserChangeForm(UserChangeForm):
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'role', 'phone_number', 
                   'student_number', 'college', 'course_units')
-         
+          
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['student_number'].required = False
