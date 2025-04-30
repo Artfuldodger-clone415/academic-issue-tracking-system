@@ -29,7 +29,7 @@ class CustomUserCreationForm(UserCreationForm):
                     self.add_error('college', 'College is required') 
                 
         return cleaned_data
-    
+     
 class CustomUserChangeForm(UserChangeForm): 
     class Meta:
         model = User
