@@ -7,7 +7,8 @@ import { getIssues, addIssue, updateIssue, deleteIssue } from "../services/api"
 
 
 
-export const IssueContext = createContext({
+export const IssueContext = createContext({ 
+  
   issues: [],
   loading: true,
   error: null,
