@@ -60,7 +60,7 @@ class Issue(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_issues')
     assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_issues')
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True) s
     course_unit = models.CharField(max_length=100, blank=True, null=True)
     college = models.CharField(max_length=100, blank=True, null=True)
     
@@ -68,7 +68,7 @@ class Issue(models.Model):
         return self.title
     
     def get_status_display(self):
-        return dict(self.STATUS_CHOICES).get(self.status, self.status)
+        return dict(self.STATUS_CHOICES).get(self.status, self.status) 
 
 class Comment(models.Model): 
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name='comments')
