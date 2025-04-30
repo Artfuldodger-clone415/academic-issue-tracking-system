@@ -20,10 +20,6 @@ import {
 
 const RegistrarDashboard = ({ stats }) => {
   const { user } = useAuth()
-  const [allIssues, setAllIssues] = useState([]) 
-  const [collegeStats, setCollegeStats] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [priorityIssues, setPriorityIssues] = useState([]) 
 
   useEffect(() => {
     const fetchAllIssues = async () => {
