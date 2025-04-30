@@ -7,7 +7,7 @@ const RoleSelection = () => {
   return (
     <div className="container">
 
-      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}> 
+      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}>  
 
       <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}>  
 
