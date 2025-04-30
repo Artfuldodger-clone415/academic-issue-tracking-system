@@ -39,7 +39,7 @@ class Issue(models.Model):
     STATUS_CHOICES = [
         (PENDING, 'Pending'),
         (IN_PROGRESS, 'In Progress'),
-        (RESOLVED, 'Resolved'),
+        (RESOLVED, 'Resolved'), 
         (CLOSED, 'Closed'),
     ]
     
