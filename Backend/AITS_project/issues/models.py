@@ -49,7 +49,7 @@ class Issue(models.Model):
     
     PRIORITY_CHOICES = [
         (LOW, 'Low'),
-        (MEDIUM, 'Medium'),
+        (MEDIUM, 'Medium'), 
         (HIGH, 'High'),
     ]
     
