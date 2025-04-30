@@ -27,7 +27,7 @@ const AssignedIssuesList = () => {
     }
 
     fetchAssignedIssues()
-  }, [user.id])
+  }, [user.id]) 
 
   const getStatusClass = (status) => { 
     switch (status) {
