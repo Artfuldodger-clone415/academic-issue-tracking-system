@@ -33,15 +33,15 @@ class CustomUserCreationForm(UserCreationForm):
                     self.add_error('college', 'College is required') 
                 
         return cleaned_data
-    
+     
 class CustomUserChangeForm(UserChangeForm): 
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'role', 'phone_number', 
                   'student_number', 'college', 'course_units')
-         
+          
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs) 
         self.fields['student_number'].required = False
         self.fields['college'].required = False  
         self.fields['course_units'].required = False
