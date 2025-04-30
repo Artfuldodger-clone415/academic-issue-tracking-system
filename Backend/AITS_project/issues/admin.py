@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Issue, Comment, Notification
+from .models import User, Issue, Comment, Notification   
 # registering and creating users roles
 class CustomUserAdmin(UserAdmin): 
     model = User
