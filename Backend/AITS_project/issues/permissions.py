@@ -32,3 +32,4 @@ class IsLecturerAssignedToIssue(permissions.BasePermission):
         # Check if user is a lecturer and is assigned to this issue
         return (request.user.role == User.LECTURER and 
                 obj.assigned_to == request.user) 
+ 
