@@ -407,7 +407,7 @@ body {
   right: 0;
   width: 350px;
   max-height: 500px;
-  background-color: var(--background);
+  background-color: var(--background);  
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);

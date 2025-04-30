@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="navbar">
       <div className="navbar-brand">
         <img src="/logo.png" alt="Makerere University Logo" /> 
-        <h1>Makerere University Issue Tracking System</h1>
+        <h1>Makerere University Issue Tracking System</h1>  
       </div>
 
       <div className="navbar-actions">

@@ -1,7 +1,7 @@
 // src/components/dashboard/Dashboard.jsx
 "use client"
 
-
+  
 import { useEffect, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
 import StudentDashboard from "./StudentDashboard" 

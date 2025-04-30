@@ -3,7 +3,7 @@
 import { createContext, useState, useContext, useEffect } from "react"
 import api from "../services/api"
 
-export const AuthContext = createContext({ 
+export const AuthContext = createContext({   
   user: null,
   isAuthenticated: false, 
   loading: true,

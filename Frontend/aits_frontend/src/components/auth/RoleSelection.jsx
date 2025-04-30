@@ -1,13 +1,13 @@
 // src/components/auth/RoleSelection.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';  
 
 
 const RoleSelection = () => {
   return (
     <div className="container">
 
-      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}> 
+      <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}>  
 
       <div className="card mt-8 mx-auto" style={{ maxWidth: '500px' }}>  
 

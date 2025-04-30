@@ -129,7 +129,7 @@ const CreateIssue = () => {
             </div>
 
             <div className="form-actions">
-              <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}>
+              <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}> 
                 Cancel
               </button>
               <button type="submit" className="btn btn-primary" disabled={loading}>
