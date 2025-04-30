@@ -9,7 +9,7 @@ def get_default_user():
 
 class User(AbstractUser): 
     STUDENT = 'student'
-    LECTURER = 'lecturer'
+    LECTURER = 'lecturer' 
     ACADEMIC_REGISTRAR = 'academic_registrar'
     ADMIN = 'admin'
 
