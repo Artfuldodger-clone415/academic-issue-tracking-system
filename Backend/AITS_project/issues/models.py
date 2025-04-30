@@ -4,7 +4,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 def get_default_user():
-    return User.objects.first().id  # Adjust logic if needed
+    return User.objects.first().id  # Adjust logic if needed 
 
 
 class User(AbstractUser): 
@@ -25,7 +25,7 @@ class User(AbstractUser):
     
     # Student-specific fields
     student_number = models.CharField(max_length=20, blank=True, null=True, unique=True, default=None)
-    college = models.CharField(max_length=100, blank=True, null=True)
+    college = models.CharField(max_length=100, blank=True, null=True) 
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}".strip()
